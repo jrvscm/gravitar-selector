@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AvatarImage from './components/AvatarImage';
+import './reset.css';
 import './GravitarSelector.css';
 
 class GravitarSelector extends Component {
   render() {
     return (
-      <div className="GravitarSelector">
-        <div className="currentAvatar">
+      <div className="gravitar-selector">
+        <div className="current-avatar">
           <AvatarImage 
-          src={this.props.currentAvatar.src}
+          src={require(`${this.props.currentAvatar.src}`)}
           label={this.props.currentAvatar.label}
           id={this.props.currentAvatar.id}
           alt="selected-avatar-image" />

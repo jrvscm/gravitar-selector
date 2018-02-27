@@ -1,5 +1,14 @@
-avatar-image {
+.avatar-image {
 	height: 60px;
-	width:60px;
+	width: 60px;
 	border-radius: 50%;
+	border: 1px solid transparent;
+}
+
+.avatar-image:hover {
+	border: 1px solid rgb(155, 160, 163);
+}
+
+.avatar-image:focus {
+	border: 1px solid rgb(155, 160, 163);
 }
