@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AvatarImage from './components/AvatarImage';
+import UnusedAvatars from './components/UnusedAvatars';
 import './reset.css';
 import './GravitarSelector.css';
 
@@ -14,6 +15,7 @@ class GravitarSelector extends Component {
           label={this.props.currentAvatar.label}
           id={this.props.currentAvatar.id}
           alt="selected-avatar-image" />
+          <UnusedAvatars />
         </div>
       </div>
     );
