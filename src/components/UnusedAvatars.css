@@ -97,17 +97,72 @@
 }
 
 .hidden {
- 	display:none;
+	display:none;
 }
 
 .shown {
  	display:contents;
+ 	-webkit-animation:bounce .3s linear;
+    -moz-animation:bounce .3s linear;
+    animation:bounce .3s linear;
+}
+
+.scale-out{
+	-webkit-animation:scale-out .3s forwards;
+    -moz-animation:scale-out .3s forwards;
+    animation:scale-out .3s forwards;
 }
 
 .current {
 	border:3px solid rgb(65, 105, 225);
 }
 
+/*---- animations ----*/
+
+/*rotate*/
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+/*bounce*/
+@-moz-keyframes bounce {
+        0%{ -moz-transform:scale(0); opacity:0;}
+        80%{ -moz-transform:scale(1.1); opacity:0.8;}
+        100%{ -moz-transform:scale(1); opacity:1;}
+}
+
+@-webkit-keyframes bounce {
+        0%{ -webkit-transform:scale(0); opacity:0;}
+        25%{ -moz-transform:scale(.75); opacity:.25;}
+        80%{ -webkit-transform:scale(1.1); opacity:0.8;}
+        100%{ -webkit-transform:scale(1); opacity:1;}
+}
+
+/*scale-out*/
+@-moz-keyframes scale-out {
+        0%{ -moz-transform:scale(1); opacity:1;}
+        10%{ -moz-transform:scale(.9); opacity:.9;}
+        20%{ -moz-transform:scale(.8); opacity:.8;}
+        30%{ -moz-transform:scale(.7); opacity:.7;}
+        40%{ -moz-transform:scale(.6); opacity:.6;}
+        50%{ -moz-transform:scale(.5); opacity:.5;}
+        60%{ -moz-transform:scale(.4); opacity:.4;}
+        70%{ -moz-transform:scale(.3); opacity:.3;}
+        80%{ -moz-transform:scale(.2); opacity:.2;}
+        90%{ -moz-transform:scale(.1); opacity:.1;}
+        100%{ -moz-transform:scale(0); opacity:0;}
+}
+
+@-webkit-keyframes scale-out {
+        0%{ -webkit-transform:scale(1); opacity:1;}
+        10%{ -webkit-transform:scale(.9); opacity:.9;}
+        20%{ -webkit-transform:scale(.8); opacity:.8;}
+        30%{ -webkit-transform:scale(.5); opacity:.7;}
+        40%{ -webkit-transform:scale(0); opacity:.6;}
+        50%{ -webkit-transform:scale(0); opacity:.5;}
+        60%{ -webkit-transform:scale(0); opacity:.4;}
+        70%{ -webkit-transform:scale(0); opacity:.3;}
+        80%{ -webkit-transform:scale(0); opacity:.2;}
+        90%{ -webkit-transform:scale(0); opacity:.1;}
+        100%{ -webkit-transform:scale(0); opacity:0;}
+}

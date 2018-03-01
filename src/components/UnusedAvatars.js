@@ -18,6 +18,7 @@ class UnusedAvatars extends Component {
     //fake http request//
     setTimeout(() => {
       this.props.dispatch(stopLoading())
+      e.target.className='partial-border'
       this.props.dispatch(hideAvatarSelector())
       this.props.dispatch(updateCurrentAvatar(i))
     }, 1500)
@@ -63,7 +64,7 @@ class UnusedAvatars extends Component {
 )
 
     return (
-      <div className={"avatars-container " + (hidden ? 'hidden' : 'shown')}>
+      <div className={"avatars-container " + (hidden ? 'scale-out' : 'shown')}>
         <h2 className="avatars-container-heading">Choose your avatar</h2>
         <ul className="avatar-choices">
           { avatars }
