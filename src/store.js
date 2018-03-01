@@ -1,12 +1,12 @@
 import {createStore, applyMiddleware, combineReducers, compose} from 'redux';
-import GravitarReducer from './reducers/GravitarReducer';
+import GravatarReducer from './reducers/GravatarReducer';
 import thunk from 'redux-thunk';
 
 const middleware = applyMiddleware(thunk);
 
 const store = createStore(
     combineReducers({
-    	GravitarReducer: GravitarReducer
+    	GravatarReducer: GravatarReducer
     }),
     compose(middleware, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 );

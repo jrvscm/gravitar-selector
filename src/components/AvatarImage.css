@@ -3,6 +3,7 @@
 	width: 60px;
 	border-radius: 50%;
 	border: 1px solid transparent;
+	cursor: pointer;
 }
 
 .avatar-image:hover {
@@ -12,3 +13,5 @@
 .avatar-image:focus {
 	border: 1px solid rgb(155, 160, 163);
 }
+
+
