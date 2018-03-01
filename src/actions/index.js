@@ -13,3 +13,13 @@ export const updateCurrentAvatar = (i) => ({
 	type:UPDATE_CURRENT_AVATAR,
 	i
 })
+
+const SET_LOADING = 'SET_LOADING'
+export const setLoading = () => ({
+	type:SET_LOADING
+})
+
+const STOP_LOADING = 'STOP_LOADING'
+export const stopLoading = () => ({
+	type:STOP_LOADING
+})

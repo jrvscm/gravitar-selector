@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AvatarImage from '../components/AvatarImage';
-import { updateCurrentAvatar } from '../actions';
+import { updateCurrentAvatar, setLoading, stopLoading } from '../actions';
 import '../reset.css';
 import './UnusedAvatars.css';
 
 class UnusedAvatars extends Component {
 
   onClick(e) {
-    this.props.dispatch(updateCurrentAvatar(e.target.getAttribute('i')))
+    let i = e.target.getAttribute('i')
+    this.props.dispatch(setLoading())
+    setTimeout(() => {
+      this.props.dispatch(stopLoading())
+      this.props.dispatch(updateCurrentAvatar(i))
+    }, 1000)
   }
 
   render() { 
+
     const hidden = this.props.hidden;
     const avatars = this.props.gravatars.map((avatar, i) => {
     
