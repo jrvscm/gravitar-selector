@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AvatarImage from '../components/AvatarImage';
-import { updateCurrentAvatar, setLoading, stopLoading } from '../actions';
+import { 
+updateCurrentAvatar, 
+setLoading, 
+stopLoading, 
+hideAvatarSelector } from '../actions';
 import '../reset.css';
 import './UnusedAvatars.css';
 
 class UnusedAvatars extends Component {
 
   onClick(e) {
+    e.target.className = 'partial-border rotate';
     let i = e.target.getAttribute('i')
     this.props.dispatch(setLoading())
+    //fake http request//
     setTimeout(() => {
       this.props.dispatch(stopLoading())
+      this.props.dispatch(hideAvatarSelector())
       this.props.dispatch(updateCurrentAvatar(i))
-    }, 1000)
+    }, 1500)
   }
 
   render() { 

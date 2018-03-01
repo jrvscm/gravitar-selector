@@ -30,7 +30,8 @@ class GravatarSelector extends Component {
           id={this.props.currentAvatar.id}
           alt="selected-avatar-image" />
         </div>
-        <UnusedAvatars 
+        <UnusedAvatars
+          loading={this.props.loading} 
           currentAvatar={this.props.currentAvatar}
           gravatars={this.props.gravatars}
           hidden={this.props.hidden} />
@@ -42,7 +43,8 @@ class GravatarSelector extends Component {
 const mapStateToProps = (state) => ({
   currentAvatar: state.GravatarReducer.currentAvatar,
   gravatars: state.GravatarReducer.gravatars,
-  hidden: state.GravatarReducer.hidden
+  hidden: state.GravatarReducer.hidden,
+  loading: state.GravatarReducer.loading
 })
 
 export default connect(mapStateToProps)(GravatarSelector)
