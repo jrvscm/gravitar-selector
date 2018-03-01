@@ -18,7 +18,6 @@ class UnusedAvatars extends Component {
     //fake http request//
     setTimeout(() => {
       this.props.dispatch(stopLoading())
-      e.target.className='partial-border'
       this.props.dispatch(hideAvatarSelector())
       this.props.dispatch(updateCurrentAvatar(i))
     }, 1500)
