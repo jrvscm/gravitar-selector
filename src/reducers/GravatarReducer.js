@@ -27,10 +27,10 @@ const GravatarReducer = (state = initialState, action) => {
 			hidden: true
 		}
 
-		case 'SET_AVATAR_IMAGE':
+		case 'UPDATE_CURRENT_AVATAR':
 		return {
 			...state,
-			currentAvatar: action.avatar
+			currentAvatar: {...state.gravatars[action.i]}
 		}
 
 		default:

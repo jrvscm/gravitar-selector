@@ -16,16 +16,21 @@ class GravatarSelector extends Component {
   }
 
   render() {
+    const hidden=this.props.hidden;
+    const classNames = hidden ? 'deselect':'selected';
+
     return (
       <div className="gravitar-selector">
-        <div onClick={(e) => this.onClick(e)} className="current-avatar">
+        <div
+        className={classNames} 
+        onClick={(e) => this.onClick(e)}>
           <AvatarImage 
           src={require(`./images/${this.props.currentAvatar.src}`)}
           label={this.props.currentAvatar.label}
           id={this.props.currentAvatar.id}
           alt="selected-avatar-image" />
-          </div>
-          <UnusedAvatars 
+        </div>
+        <UnusedAvatars 
           currentAvatar={this.props.currentAvatar}
           gravatars={this.props.gravatars}
           hidden={this.props.hidden} />
