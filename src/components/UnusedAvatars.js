@@ -27,28 +27,21 @@ class UnusedAvatars extends Component {
     const firstLoad = this.props.firstLoad;
     const hidden = this.props.hidden;
     const avatars = this.props.gravatars.map((avatar, i) => {
-    
+    let divClasses;
     if(this.props.currentAvatar.label === avatar.label) {
+      divClasses = 'overlay current';
+    } else {
+      divClasses = 'overlay';
+    }
       return (  
       <li key={i} i={i} className="avatar-li" onClick={(e) => this.onClick(e)}>
-        <div className="overlay current" i={i}></div>
+        <div className={divClasses} i={i}></div>
         <AvatarImage
         src={require(`../images/${this.props.gravatars[i].src}`)}
         label={avatar.label}
         id={avatar.id}
         alt='avatar-image' />
       </li>
-      )
-    } else {
-      return(
-      <li key={i} i={i} className="avatar-li" onClick={(e) => this.onClick(e)}>
-        <div className="overlay" i={i}></div>
-        <AvatarImage
-        src={require(`../images/${this.props.gravatars[i].src}`)}
-        label={avatar.label}
-        id={avatar.id}
-        alt='avatar-image' />
-      </li>        
       )
     }
   }  
