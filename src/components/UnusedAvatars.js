@@ -10,6 +10,20 @@ import '../reset.css';
 import './UnusedAvatars.css';
 
 class UnusedAvatars extends Component {
+  componentWillMount() {
+    document.addEventListener('mousedown', this.handleClick, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClick, false);
+  }
+
+  handleClick = (e) => {
+    if (this.node.contains(e.target)) {
+      return;
+    }
+    this.props.dispatch(hideAvatarSelector());
+  }
 
   onClick(e) {
     let i = e.target.getAttribute('i')
@@ -58,7 +72,7 @@ class UnusedAvatars extends Component {
   )
 
     return (
-      <div className={hiddenClasses}>
+      <div ref={node => this.node = node} className={hiddenClasses}>
         <h2 className="avatars-container-heading">Choose your avatar</h2>
         <ul className="avatar-choices">
           { avatars }
