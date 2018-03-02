@@ -23,3 +23,8 @@ const STOP_LOADING = 'STOP_LOADING'
 export const stopLoading = () => ({
 	type:STOP_LOADING
 })
+
+const FIRST_LOAD = 'FIRST_LOAD'
+export const firstLoad = () => ({
+	type:FIRST_LOAD
+})

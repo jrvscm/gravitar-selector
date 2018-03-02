@@ -3,26 +3,23 @@ import './AvatarImage.css';
 
 class AvatarImage extends Component {
 	render() {
+		let classNames;
+		
 		if(this.props.className === 'current') {
+			classNames = 'avatar-image current';
+		} else {
+			classNames = 'avatar-image';
+		}
+		
 		return (
 			<img
-			className={"avatar-image current"} 
+			className={classNames} 
 			src={this.props.src} 
 			id={this.props.id} 
 			label={this.props.label}
 			alt={this.props.alt} />
 		)
-	} else {
-		return(
-			<img
-			className={"avatar-image"} 
-			src={this.props.src} 
-			id={this.props.id} 
-			label={this.props.label}
-			alt={this.props.alt} />		
-			)
-		}
-	}
+	} 
 }
 
 export default AvatarImage;

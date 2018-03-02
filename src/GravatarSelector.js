@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { showAvatarSelector, hideAvatarSelector } from './actions';
+import { 
+  showAvatarSelector, 
+  hideAvatarSelector,
+  firstLoad } from './actions';
 import AvatarImage from './components/AvatarImage';
 import UnusedAvatars from './components/UnusedAvatars';
 import './reset.css';
@@ -10,6 +13,7 @@ class GravatarSelector extends Component {
   onClick(e) {
     if(this.props.hidden === true) {
     this.props.dispatch(showAvatarSelector())
+    this.props.dispatch(firstLoad())
   } else {
     this.props.dispatch(hideAvatarSelector())
     }
@@ -21,9 +25,7 @@ class GravatarSelector extends Component {
 
     return (
       <div className="gravitar-selector">
-        <div
-        className={classNames} 
-        onClick={(e) => this.onClick(e)}>
+        <div className={classNames} onClick={(e) => this.onClick(e)}>
           <AvatarImage 
           src={require(`./images/${this.props.currentAvatar.src}`)}
           label={this.props.currentAvatar.label}
@@ -34,7 +36,8 @@ class GravatarSelector extends Component {
           loading={this.props.loading} 
           currentAvatar={this.props.currentAvatar}
           gravatars={this.props.gravatars}
-          hidden={this.props.hidden} />
+          hidden={this.props.hidden}
+          firstLoad={this.props.firstLoad} />
       </div>
     );
   }
@@ -44,7 +47,8 @@ const mapStateToProps = (state) => ({
   currentAvatar: state.GravatarReducer.currentAvatar,
   gravatars: state.GravatarReducer.gravatars,
   hidden: state.GravatarReducer.hidden,
-  loading: state.GravatarReducer.loading
+  loading: state.GravatarReducer.loading,
+  firstLoad: state.GravatarReducer.firstLoad
 })
 
 export default connect(mapStateToProps)(GravatarSelector)

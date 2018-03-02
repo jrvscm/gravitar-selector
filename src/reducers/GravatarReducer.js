@@ -9,7 +9,8 @@ const initialState = {
 	],
 	currentAvatar: { "src": "avatar1.png", "label": "Avatar 1", "id": 1 },
 	hidden: true,
-	loading: false
+	loading: false,
+	firstLoad: true
 }
 
 
@@ -44,6 +45,12 @@ const GravatarReducer = (state = initialState, action) => {
 		return {
 			...state,
 			loading: false
+		}
+
+		case 'FIRST_LOAD':
+		return {
+			...state,
+			firstLoad: false
 		}
 
 		default:
