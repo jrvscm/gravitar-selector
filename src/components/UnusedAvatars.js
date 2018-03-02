@@ -14,9 +14,11 @@ class UnusedAvatars extends Component {
   onClick(e) {
     let i = e.target.getAttribute('i')
     e.target.className = 'partial-border rotate';
+    e.persist(); //persist event so we can use it inside setTimeout()
     this.props.dispatch(setLoading())
     //fake http request//
     setTimeout(() => {
+      e.target.className = 'overlay current';
       this.props.dispatch(stopLoading())
       this.props.dispatch(hideAvatarSelector())
       this.props.dispatch(updateCurrentAvatar(i))
@@ -26,14 +28,23 @@ class UnusedAvatars extends Component {
   render() { 
     const firstLoad = this.props.firstLoad;
     const hidden = this.props.hidden;
-    const avatars = this.props.gravatars.map((avatar, i) => {
     let divClasses;
+    let hiddenClasses;
+    const avatars = this.props.gravatars.map((avatar, i) => {
+    
     if(this.props.currentAvatar.label === avatar.label) {
       divClasses = 'overlay current';
     } else {
       divClasses = 'overlay';
     }
-      return (  
+
+    if(firstLoad === true) {
+      hiddenClasses = "avatars-container " + (hidden ? 'hidden' : 'shown');
+    } else {
+      hiddenClasses = "avatars-container " + (hidden ? 'scale-out' : 'shown');
+    }
+    
+    return (  
       <li key={i} i={i} className="avatar-li" onClick={(e) => this.onClick(e)}>
         <div className={divClasses} i={i}></div>
         <AvatarImage
@@ -43,31 +54,19 @@ class UnusedAvatars extends Component {
         alt='avatar-image' />
       </li>
       )
-    }
-  }  
-)
+    } 
+  )
 
-    if(firstLoad === true) {
-      return (
-        <div className={"avatars-container " + (hidden ? 'hidden' : 'shown')}>
-          <h2 className="avatars-container-heading">Choose your avatar</h2>
-          <ul className="avatar-choices">
-            { avatars }
-          </ul>
-        </div>
-      );
-    } else {
-      return (
-        <div className={"avatars-container " + (hidden ? 'scale-out' : 'shown')}>
-          <h2 className="avatars-container-heading">Choose your avatar</h2>
-          <ul className="avatar-choices">
-            { avatars }
-          </ul>
-        </div>
-      );      
-    }
-  }    
-}
+    return (
+      <div className={hiddenClasses}>
+        <h2 className="avatars-container-heading">Choose your avatar</h2>
+        <ul className="avatar-choices">
+          { avatars }
+        </ul>
+      </div>
+    );
+  }
+}    
 
 const mapStateToProps = (state) => ({})
 
