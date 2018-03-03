@@ -15,9 +15,7 @@ export class GravatarSelector extends Component {
     if(this.props.hidden === true) {
     this.props.dispatch(showAvatarSelector())
     this.props.dispatch(firstLoad())
-  } else {
-    this.props.dispatch(hideAvatarSelector())
-    }
+    } 
   }
 
   render() {

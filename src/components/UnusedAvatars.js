@@ -19,6 +19,7 @@ export class UnusedAvatars extends Component {
   }
 
   handleClick = (e) => {
+    console.log(e.target)
     if (this.node.contains(e.target)) {
       return;
     }
