@@ -82,6 +82,4 @@ class UnusedAvatars extends Component {
   }
 }    
 
-const mapStateToProps = (state) => ({})
-
-export default connect(mapStateToProps)(UnusedAvatars)
+export default connect()(UnusedAvatars)

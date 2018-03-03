@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme';
 import UnusedAvatars from './UnusedAvatars';
 
 describe('<UnusedAvatars />', () => {
-	const state = {
+	let state = {
 		loading: false, 
     	currentAvatar: { "src": "avatar1.png", "label": "Avatar 1", "id": 1 },
     	gravatars: [
@@ -19,7 +19,7 @@ describe('<UnusedAvatars />', () => {
 	}
 
 	it('Renders without crashing', () => {
-		const wrapper = shallow(
+		const wrapper = mount(
 			<UnusedAvatars
 			loading={state.loading}
 			currentAvatar={state.currentAvatar}
