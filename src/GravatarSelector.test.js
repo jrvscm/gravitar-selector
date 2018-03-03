@@ -25,7 +25,6 @@ describe('<UnusedAvatars />', () => {
 		 		currentAvatar={state.currentAvatar}
 		 		gravatars={state.gravatars}
 		 		hidden={state.hidden}
-		 		firstLoad={state.firstLoad}
-		 	/>)
+		 		firstLoad={state.firstLoad} />)
 	});
 });
