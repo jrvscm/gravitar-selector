@@ -11,11 +11,29 @@ import './GravatarSelector.css';
 
 export class GravatarSelector extends Component {
 
+  componentWillMount() {
+    document.addEventListener('mousedown', this.handleClick, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClick, false);
+  }
+
+  handleClick = (e) => {
+    if (this.node.contains(e.target)) {
+      return;
+    }
+    this.props.dispatch(hideAvatarSelector());
+  }
+
+
   onClick(e) {
     if(this.props.hidden === true) {
     this.props.dispatch(showAvatarSelector())
     this.props.dispatch(firstLoad())
-    } 
+    } else {
+      this.props.dispatch(hideAvatarSelector())
+    }
   }
 
   render() {
@@ -23,13 +41,13 @@ export class GravatarSelector extends Component {
     const classNames = hidden ? 'deselect':'selected';
 
     return (
-      <div className="gravitar-selector">
+      <div ref={node => this.node = node} className="gravitar-selector">
         <div className={classNames} onClick={(e) => this.onClick(e)}>
           <AvatarImage 
-          src={require(`./images/${this.props.currentAvatar.src}`)}
-          label={this.props.currentAvatar.label}
-          id={this.props.currentAvatar.id}
-          alt="selected-avatar-image" />
+            src={require(`./images/${this.props.currentAvatar.src}`)}
+            label={this.props.currentAvatar.label}
+            id={this.props.currentAvatar.id}
+            alt="selected-avatar-image" />
         </div>
         <UnusedAvatars
           loading={this.props.loading} 
