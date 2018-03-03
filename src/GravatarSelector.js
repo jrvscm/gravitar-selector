@@ -10,6 +10,7 @@ import './reset.css';
 import './GravatarSelector.css';
 
 export class GravatarSelector extends Component {
+
   onClick(e) {
     if(this.props.hidden === true) {
     this.props.dispatch(showAvatarSelector())

@@ -1,6 +1,12 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { UnusedAvatars } from './UnusedAvatars';
+import { 
+updateCurrentAvatar, 
+setLoading, 
+stopLoading, 
+hideAvatarSelector 
+} from '../actions';
 
 describe('<UnusedAvatars />', () => {
 	let state = {
