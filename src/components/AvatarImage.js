@@ -13,7 +13,6 @@ class AvatarImage extends Component {
 		
 		return (
 			<img
-			role={"button"}
 			className={classNames} 
 			src={this.props.src} 
 			id={this.props.id} 
