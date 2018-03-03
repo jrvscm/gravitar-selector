@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import UnusedAvatars from './UnusedAvatars';
+import { UnusedAvatars } from './UnusedAvatars';
 
 describe('<UnusedAvatars />', () => {
 	let state = {
@@ -19,7 +19,7 @@ describe('<UnusedAvatars />', () => {
 	}
 
 	it('Renders without crashing', () => {
-		const wrapper = mount(
+		const wrapper = shallow(
 			<UnusedAvatars
 			loading={state.loading}
 			currentAvatar={state.currentAvatar}

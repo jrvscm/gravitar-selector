@@ -9,7 +9,7 @@ hideAvatarSelector } from '../actions';
 import '../reset.css';
 import './UnusedAvatars.css';
 
-class UnusedAvatars extends Component {
+export class UnusedAvatars extends Component {
   componentWillMount() {
     document.addEventListener('mousedown', this.handleClick, false);
   }

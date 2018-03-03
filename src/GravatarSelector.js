@@ -9,7 +9,7 @@ import UnusedAvatars from './components/UnusedAvatars';
 import './reset.css';
 import './GravatarSelector.css';
 
-class GravatarSelector extends Component {
+export class GravatarSelector extends Component {
   onClick(e) {
     if(this.props.hidden === true) {
     this.props.dispatch(showAvatarSelector())
