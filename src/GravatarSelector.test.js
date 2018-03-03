@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { GravatarSelector } from './GravatarSelector';
 
-describe('<UnusedAvatars />', () => {
+describe('<GravatarSelector />', () => {
 	let state = {
 		loading: false, 
     	currentAvatar: { "src": "avatar1.png", "label": "Avatar 1", "id": 1 },
