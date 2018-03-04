@@ -3,6 +3,7 @@
 	border-radius: 2px;
 	background: rgb(44, 48, 51);
 	padding:7px;
+	margin-top: 10px;
 	-webkit-box-shadow: 0px 0px 10px 2px rgba(102,102,102,1);
 	-moz-box-shadow: 0px 0px 10px 2px rgba(102,102,102,1);
 	box-shadow: 0px 0px 10px 2px rgba(102,102,102,1);
@@ -68,6 +69,19 @@
 	cursor: pointer;
 }
 
+.overlay:hover {
+	z-index: 1;
+	background-color: rgba(122, 161, 178, .2);
+	border: 3px solid rgb(155, 160, 163);
+}
+
+.overlay:focus {
+	z-index: 1;
+	background-color: rgba(122, 161, 178, .2);
+	border: 3px solid rgb(155, 160, 163);
+	outline: none;
+}
+
 .partial-border {
 	height: 60px;
 	width: 60px;
@@ -82,18 +96,13 @@
 	border-left:3px solid rgb(65, 105, 225);
 	border-right:3px solid rgb(65, 105, 225);
 	border-bottom:3px solid rgb(65, 105, 225);
+	outline:none;
 }
 
 .rotate {
 	-webkit-animation:spin 1s linear infinite;
     -moz-animation:spin 1s linear infinite;
     animation:spin 1s linear infinite;
-}
-
-.overlay:hover {
-	z-index: 1;
-	background-color: rgba(122, 161, 178, .2);
-	border: 3px solid rgb(155, 160, 163);
 }
 
 .hidden {

@@ -65,13 +65,14 @@ export class UnusedAvatars extends Component {
     
     return (  
       <li 
-      tabIndex={`${avatar.id}`}
-      role="button"
-      onKeyDown={(e) => this.handleKeyboard(e)} 
       key={i} 
       i={i} 
       className="avatar-li" onClick={(e) => this.onClick(e)}>     
-        <div className={divClasses} i={i} id={`overlay-${i}`}></div>
+        <div 
+        tabIndex={`${avatar.id}`}
+        role="button"
+        onKeyDown={(e) => this.handleKeyboard(e)}
+        className={divClasses} i={i}></div>
           <AvatarImage
             src={require(`../images/${this.props.gravatars[i].src}`)}
             label={avatar.label}
