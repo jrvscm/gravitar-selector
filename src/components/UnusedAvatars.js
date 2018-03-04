@@ -12,8 +12,8 @@ import './UnusedAvatars.css';
 export class UnusedAvatars extends Component {
   
   handleKeyboard(e) {
-    if(e.keyCode === 32 || e.keycode === 13) {
-    let i = e.target.getAttribute('i')
+    if(e.keyCode === 32) {
+      let i = e.target.getAttribute('i')
       e.target.className = 'partial-border rotate';
       e.persist(); //persist event so we can use it inside setTimeout()
       this.props.dispatch(setLoading())
@@ -71,7 +71,7 @@ export class UnusedAvatars extends Component {
         <div 
         tabIndex={"0"}
         role="button"
-        onKeyDown={(e) => this.handleKeyboard(e)}
+        onKeyUp={(e) => this.handleKeyboard(e)}
         className={divClasses} i={i}></div>
           <AvatarImage
             src={require(`../images/${this.props.gravatars[i].src}`)}
