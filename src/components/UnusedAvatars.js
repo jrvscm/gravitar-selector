@@ -69,7 +69,7 @@ export class UnusedAvatars extends Component {
       i={i} 
       className="avatar-li" onClick={(e) => this.onClick(e)}>     
         <div 
-        tabIndex={`${avatar.id}`}
+        tabIndex={"0"}
         role="button"
         onKeyDown={(e) => this.handleKeyboard(e)}
         className={divClasses} i={i}></div>
