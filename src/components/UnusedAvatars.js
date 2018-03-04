@@ -11,6 +11,11 @@ import './UnusedAvatars.css';
 
 export class UnusedAvatars extends Component {
   onClick(e) {
+    if(e.keyCode === '32') {
+      console.log('what it is')
+    } else {
+      return;
+    }
     let i = e.target.getAttribute('i')
     e.target.className = 'partial-border rotate';
     e.persist(); //persist event so we can use it inside setTimeout()
@@ -44,7 +49,13 @@ export class UnusedAvatars extends Component {
     }
     
     return (  
-      <li key={i} i={i} className="avatar-li" onClick={(e) => this.onClick(e)}>     
+      <li 
+      tabIndex={`${avatar.id}`}
+      role="button"
+      onKeyDown={(e) => this.onClick(e)} 
+      key={i} 
+      i={i} 
+      className="avatar-li" onClick={(e) => this.onClick(e)}>     
         <div className={divClasses} i={i}></div>
           <AvatarImage
             src={require(`../images/${this.props.gravatars[i].src}`)}
