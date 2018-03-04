@@ -44,13 +44,13 @@ export class UnusedAvatars extends Component {
     }
     
     return (  
-      <li key={i} i={i} className="avatar-li" onClick={(e) => this.onClick(e)}>
+      <li key={i} i={i} className="avatar-li" onClick={(e) => this.onClick(e)}>     
         <div className={divClasses} i={i}></div>
-        <AvatarImage
-        src={require(`../images/${this.props.gravatars[i].src}`)}
-        label={avatar.label}
-        id={avatar.id}
-        alt='avatar-image' />
+          <AvatarImage
+            src={require(`../images/${this.props.gravatars[i].src}`)}
+            label={avatar.label}
+            id={avatar.id}
+            alt='avatar-image' />
       </li>
       )
     } 

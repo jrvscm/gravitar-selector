@@ -6,7 +6,7 @@ class AvatarImage extends Component {
 		let classNames;
 		
 		if(this.props.className === 'current') {
-			classNames = 'avatar-image current';
+			classNames = 'current';
 		} else {
 			classNames = 'avatar-image';
 		}

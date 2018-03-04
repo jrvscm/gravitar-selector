@@ -42,12 +42,14 @@ export class GravatarSelector extends Component {
 
     return (
       <div ref={node => this.node = node} className="gravitar-selector">
-        <div role='button' className={classNames} onClick={(e) => this.onClick(e)}>
+        <div className={classNames} onClick={(e) => this.onClick(e)}>
+          <button className={'current-avatar-btn'}>
           <AvatarImage 
             src={require(`./images/${this.props.currentAvatar.src}`)}
             label={this.props.currentAvatar.label}
             id={this.props.currentAvatar.id}
             alt="selected-avatar-image" />
+          </button>
         </div>
         <UnusedAvatars
           loading={this.props.loading} 
