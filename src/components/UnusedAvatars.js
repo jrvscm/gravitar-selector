@@ -10,12 +10,27 @@ import '../reset.css';
 import './UnusedAvatars.css';
 
 export class UnusedAvatars extends Component {
-  onClick(e) {
-    if(e.keyCode === '32') {
-      console.log('what it is')
-    } else {
+  
+  handleKeyboard(e) {
+    if(e.keyCode === 32 || e.keycode === 13) {
+    let i = e.target.getAttribute('i')
+      e.target.className = 'partial-border rotate';
+      e.persist(); //persist event so we can use it inside setTimeout()
+      this.props.dispatch(setLoading())
+      //fake http request//
+    setTimeout(() => {
+      e.target.className = 'overlay current';
+      this.props.dispatch(stopLoading())
+      this.props.dispatch(hideAvatarSelector())
+      this.props.dispatch(updateCurrentAvatar(i))
+    }, 1500)
+  } else {
       return;
     }
+  }
+
+  onClick(e) {
+    console.log(e.target)
     let i = e.target.getAttribute('i')
     e.target.className = 'partial-border rotate';
     e.persist(); //persist event so we can use it inside setTimeout()
@@ -52,11 +67,11 @@ export class UnusedAvatars extends Component {
       <li 
       tabIndex={`${avatar.id}`}
       role="button"
-      onKeyDown={(e) => this.onClick(e)} 
+      onKeyDown={(e) => this.handleKeyboard(e)} 
       key={i} 
       i={i} 
       className="avatar-li" onClick={(e) => this.onClick(e)}>     
-        <div className={divClasses} i={i}></div>
+        <div className={divClasses} i={i} id={`overlay-${i}`}></div>
           <AvatarImage
             src={require(`../images/${this.props.gravatars[i].src}`)}
             label={avatar.label}
