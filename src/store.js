@@ -8,7 +8,7 @@ const store = createStore(
     combineReducers({
     	GravatarReducer: GravatarReducer
     }),
-    compose(middleware, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+    compose(middleware/*, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()*/)
 );
 
 export default store;
