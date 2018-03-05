@@ -12,7 +12,7 @@ import './UnusedAvatars.css';
 export class UnusedAvatars extends Component {
   
   handleKeyboard(e) {
-    if(e.keyCode === 32) {
+    if(e.keyCode === 32 || e.keyCode === 13) {
       let i = e.target.getAttribute('i')
       e.target.className = 'partial-border rotate';
       e.persist(); //persist event so we can use it inside setTimeout()

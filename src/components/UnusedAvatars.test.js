@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { UnusedAvatars } from './UnusedAvatars';
 import { 
 updateCurrentAvatar, 
@@ -32,5 +32,30 @@ describe('<UnusedAvatars />', () => {
 			gravatars={state.gravatars}
 			hidden={state.hidden}
 			firstLoad={state.firstLoad} />)
+	});
+
+		it('should have 6 list items', () => {
+		const wrapper = shallow(
+			<UnusedAvatars
+			loading={state.loading}
+			currentAvatar={state.currentAvatar}
+			gravatars={state.gravatars}
+			hidden={state.hidden}
+			firstLoad={state.firstLoad} />);
+			expect(wrapper.find('li').length).toEqual(6);
+	});
+
+	it('should fire setLoading ', () => {
+		const dispatch = jest.fn();
+		const wrapper = mount(
+		<UnusedAvatars
+			dispatch={dispatch}
+			loading={state.loading}
+			currentAvatar={state.currentAvatar}
+			gravatars={state.gravatars}
+			hidden={state.hidden}
+			firstLoad={state.firstLoad} />);
+		wrapper.find('div.overlay').at(2).simulate('click');
+		expect(dispatch).toHaveBeenCalledWith(setLoading())
 	});
 });

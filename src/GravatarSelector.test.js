@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { GravatarSelector } from './GravatarSelector';
+import {  SHOW_AVATAR_SELECTOR, FIRST_LOAD } from './actions';
 
 describe('<GravatarSelector />', () => {
 	let state = {
@@ -26,5 +27,21 @@ describe('<GravatarSelector />', () => {
 		 		gravatars={state.gravatars}
 		 		hidden={state.hidden}
 		 		firstLoad={state.firstLoad} />)
+	});
+
+	it('should fire showAvatarSelector', () => {
+		const dispatch = jest.fn();
+		const wrapper = shallow(
+			<GravatarSelector
+				dispatch={dispatch}
+		 		loading={state.loading}
+		 		currentAvatar={state.currentAvatar}
+		 		gravatars={state.gravatars}
+		 		hidden={state.hidden}
+		 		firstLoad={state.firstLoad} />)
+		wrapper.find('div.deselect').simulate('click');
+		expect(dispatch).toHaveBeenCalled();
+		expect(dispatch.mock.calls[0][0].type).toEqual(SHOW_AVATAR_SELECTOR);
+		expect(dispatch.mock.calls[1][0].type).toEqual(FIRST_LOAD);
 	});
 });
