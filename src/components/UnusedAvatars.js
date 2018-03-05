@@ -12,7 +12,9 @@ import './UnusedAvatars.css';
 export class UnusedAvatars extends Component {
   
   handleKeyboard(e) {
-    if(e.keyCode === 32 || e.keyCode === 13) {
+    //we need to disable if hidden is false so they cant select avatars when the popover is closed
+    // eslint-disable-next-line 
+    if(e.keyCode === 32 && this.props.hidden === false || e.keyCode === 13 && this.props.hidden === false) {
       let i = e.target.getAttribute('i')
       e.target.className = 'partial-border rotate';
       e.persist(); //persist event so we can use it inside setTimeout()
@@ -30,7 +32,6 @@ export class UnusedAvatars extends Component {
   }
 
   onClick(e) {
-    console.log(e.target)
     let i = e.target.getAttribute('i')
     e.target.className = 'partial-border rotate';
     e.persist(); //persist event so we can use it inside setTimeout()
