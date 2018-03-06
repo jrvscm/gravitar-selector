@@ -18,7 +18,7 @@ describe('<AvatarImage />', () => {
         );
         expect(wrapper.contains(
         	<img 
-        	className={'avatar-image current'}
+        	className={'current'}
         	src={require(`../images/avatar1.png`)}
           	label={'avatar 1'}
           	id={1}
