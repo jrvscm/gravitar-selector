@@ -34,7 +34,7 @@ describe('<UnusedAvatars />', () => {
 			firstLoad={state.firstLoad} />)
 	});
 
-		it('should have 6 list items', () => {
+	it('should have 6 list items', () => {
 		const wrapper = shallow(
 			<UnusedAvatars
 			loading={state.loading}

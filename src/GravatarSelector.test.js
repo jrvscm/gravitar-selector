@@ -29,7 +29,7 @@ describe('<GravatarSelector />', () => {
 		 		firstLoad={state.firstLoad} />)
 	});
 
-	it('should fire showAvatarSelector', () => {
+	it('should fire showAvatarSelector and firstLoad', () => {
 		const dispatch = jest.fn();
 		const wrapper = shallow(
 			<GravatarSelector
