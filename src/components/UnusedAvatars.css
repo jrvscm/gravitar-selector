@@ -1,7 +1,7 @@
 .avatars-container {
 	position: relative;
 	border-radius: 2px;
-	background: rgb(44, 48, 51);
+	background-color: rgb(44, 48, 51);
 	/*cut padding to 4 px make up the 8px inbetween avatars*/
 	padding:4px;
 	margin-top: 10px;
@@ -110,7 +110,6 @@
 }
 
 .shown {
- 	display:contents;
  	-webkit-animation:bounce .3s linear;
     -moz-animation:bounce .3s linear;
     -o-animation:bounce .3s linear;
