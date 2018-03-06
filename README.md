@@ -11,3 +11,9 @@
 ### testing
 
  - npm test
+
+### Browsers
+ - IE11.125
+ - Chrome (current)
+ - FireFox (current)
+ - Safari (current)
