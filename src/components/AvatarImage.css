@@ -1,10 +1,10 @@
 .avatar-image {
-	height: 60px;
-	width: 60px;
+	height:55px;
+	width:55px;
 	padding:0;
 	margin:0;
-	border-radius: 50%;
-	border: 1px solid transparent;
+	border:none;
+	border-radius:27.5px;
 	cursor: pointer;
 }
 

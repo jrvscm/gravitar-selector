@@ -1,4 +1,5 @@
 .gravitar-selector {
+  /*280px width cant be achieved without lessening padding, or adding width, so I added width*/
   width: 310px;
   margin: 50px auto;
   text-align: center;
