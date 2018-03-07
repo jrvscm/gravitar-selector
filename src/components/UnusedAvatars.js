@@ -20,7 +20,6 @@ export class UnusedAvatars extends Component {
       e.persist(); //persist event so we can use it inside setTimeout()
       this.props.dispatch(setLoading())
       //fake http request//
-      //es6 arrow functions dont work with IE11 (admittedly working on this issue)
       //would normally dispatch an action to redux, sending dispatch as a prop so we can do async and then 
       //do something with the response, eg. update the state in another action
     setTimeout(() => {
@@ -40,7 +39,6 @@ export class UnusedAvatars extends Component {
     e.persist(); //persist event so we can use it inside setTimeout()
     this.props.dispatch(setLoading())
       //fake http request//
-      //es6 arrow functions dont work with IE11 (admittedly working on this issue)
       //would normally dispatch an action to redux, sending dispatch as a prop so we can do async and then 
       //do something with the response, eg. update the state in another action
     setTimeout(() => {
