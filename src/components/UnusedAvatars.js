@@ -27,7 +27,7 @@ export class UnusedAvatars extends Component {
       this.props.dispatch(stopLoading())
       this.props.dispatch(hideAvatarSelector())
       this.props.dispatch(updateCurrentAvatar(i))
-    }, 1500)
+    }, 1000)
   } else {
       return;
     }
@@ -46,7 +46,7 @@ export class UnusedAvatars extends Component {
       this.props.dispatch(stopLoading())
       this.props.dispatch(hideAvatarSelector())
       this.props.dispatch(updateCurrentAvatar(i))
-    }, 1500)
+    }, 1000)
   }
 
   render() { 
