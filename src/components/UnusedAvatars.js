@@ -72,10 +72,11 @@ export class UnusedAvatars extends Component {
       <li 
       key={i} 
       i={i} 
-      className="avatar-li" onClick={(e) => this.onClick(e)}>     
+      className="avatar-li">     
         <div 
         tabIndex={"0"}
         role="button"
+        onClick={(e) => this.onClick(e)}
         onKeyUp={(e) => this.handleKeyboard(e)}
         className={divClasses} i={i}></div>
           <AvatarImage
