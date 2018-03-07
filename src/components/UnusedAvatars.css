@@ -91,10 +91,10 @@
 	right:0;
 	bottom:0;
 	cursor: pointer;
-	border-top: 3px solid transparent;
+	border-top: 3px solid rgb(153, 204, 255);
 	border-left:3px solid rgb(153, 204, 255);
 	border-right:3px solid rgb(153, 204, 255);
-	border-bottom:3px solid rgb(153, 204, 255);
+	border-bottom:3px solid transparent;
 	outline:none;
 }
 
